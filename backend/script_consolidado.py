@@ -69,12 +69,13 @@ def run_data_manipulation_dcm(df_join_dcm,df_join_ias,df_join_dv):
 
 
 def Run_Consolidated():
-        st.write(check_daily)
-        st.write(check_monthly)
-        load_saved_value()
-        st.write(check_package)
+        try:
+                st.write("Load")
+                load_saved_value()
+                st.write("Load values OK")
 
-
+        except Exception as e:
+             raise Exception(f"Error Load Values: {e}")
         
         #consolidado_web.messages("Ejecutando Funcion Run..")
 def conect_sheets():
