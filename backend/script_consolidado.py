@@ -116,7 +116,10 @@ def read_paths():
     xndr_value = st.session_state.get("path_xandr")
     value_xndr =show_selection(xndr_value)
     
-    xlsx_files_ias= glob.glob(value_ias + "*.xlsx")#IAS
+    xlsx_files_ias= (value_ias + "*.xlsx")#IAS    
+    st.write("Value xlsx_files_ias;" , xlsx_files_ias)
+
+    
     xls_files_gam= value_gam + "Consolidado GAM.xlsx"#GAM
     csv_files_dcm= glob.glob(value_dcm+"*.csv")#DCM
     dv_files= glob.glob(value_dv+"*.csv")#DV
