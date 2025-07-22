@@ -8,7 +8,7 @@ def mostrar_menu():
     with st.sidebar:
         profile= st.session_state.get("profile")
         value_profile = show_selection(profile)        
-        st.sidebar.image("frontend/assets/Img/logo.png", use_container_width=True)
+        st.sidebar.image("frontend/assets/img/logo.png", use_container_width=True)
         
         seleccion = option_menu(
             menu_title=f"{value_profile}",  # Título opcional
