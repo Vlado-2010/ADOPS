@@ -79,7 +79,12 @@ def conect_sheets():
     scope=['https://www.googleapis.com/auth/spreadsheets',
             'https://www.googleapis.com/auth/drive']
 
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(JSON,scope)
+    # Cargar desde st.secrets
+    creds_dict = st.secrets["gcp_service_account"]
+    #local
+    #credentials = ServiceAccountCredentials.from_json_keyfile_name(JSON,scope)
+    #Streamlit
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_dict,scope)
     client = gspread.authorize(credentials)
     sheet_Date = client.open("Data_Client_Date_2025_1").sheet1
     sheet_Month = client.open("Data_Client_Month_2025_1").sheet1
@@ -878,7 +883,7 @@ def Cloud_Update(check_daily,check_monthly,check_package):
                 df_final=df_final.fillna('')
                 #actualiza
                 data_date.to_excel("C:/Users/vbautista/Documents/daily_julio.xlsx")
-                data_month.to_excel("C:/Users/vbautista/Documents/Montly_juñio.xlsx")
+                data_month.to_excel("C:/Users/vbautista/Documents/Montly_julio.xlsx")
 
                 
                 def update_package():
