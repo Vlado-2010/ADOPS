@@ -22,6 +22,16 @@ def READ_PATH_OPTI_REPORTS():
     
     return path_local_report
 
-def DATAFRAME_PATHS():
+'''def DATAFRAME_PATHS():
     df = pd.read_excel("./frontend/assets/Paths.xlsx")
-    return df
+    return df'''
+
+def DATAFRAME_PATHS():
+    try:
+        df = pd.read_excel("./frontend/assets/Paths.xlsx")
+        return df
+    except FileNotFoundError:
+        st.error("❌ Archivo Paths.xlsx no encontrado en ./frontend/assets")
+    except Exception as e:
+        st.error(f"❌ Error al leer Paths.xlsx: {e}")
+    return pd.DataFrame()
