@@ -10,7 +10,22 @@ file_pas=show_selection(df_value_Pas)
 file_pds=show_selection(df_value_Pds)
 file_table=show_selection(df_value_Table) '''
           
-def load_saved_value():        
+def load_saved_value():
+        path = './frontend/assets/perfil.xlsx'
+    
+        if not os.path.exists(path):
+            st.error(f"⚠️ Archivo no encontrado en {path}")
+        return
+    
+        saved_df = pd.read_excel(path)
+    
+        if saved_df.empty:
+            st.warning("⚠️ El archivo perfil.xlsx está vacío.")
+        return
+
+        st.write("📄 Contenido de perfil.xlsx:", saved_df.head())  # <= Para depurar
+    
+        
         if os.path.exists('./frontend/assets/perfil.xlsx'):
             saved_df = pd.read_excel('./frontend/assets/perfil.xlsx')
             if not saved_df.empty:
