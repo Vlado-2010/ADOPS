@@ -5,7 +5,7 @@ import gspread
 import glob
 import os
 from oauth2client.service_account import ServiceAccountCredentials
-from backend.data_loader.perfil import show_selection
+from backend.data_loader.perfil import load_saved_value, show_selection
 import datetime
 import numpy as np
 
@@ -72,6 +72,8 @@ def Run_Consolidated(check_daily,check_monthly,check_package):
         st.write(check_daily)
         st.write(check_monthly)
         st.write(check_package)
+        load_saved_value()
+
         
         #consolidado_web.messages("Ejecutando Funcion Run..")
 def conect_sheets():
