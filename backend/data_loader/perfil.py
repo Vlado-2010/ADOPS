@@ -27,6 +27,9 @@ def load_saved_value():
                 saved_value_export_vw = saved_df['Valor Export VW'].iloc[0]
                 saved_value_export_cr = saved_df['Valor Export CR'].iloc[0]
                 saved_value_file_ias = saved_df['Path IAS'].iloc[0]
+                st.session_state['path_ias'] = saved_value_file_ias
+                
+                
                 saved_value_file_gam = saved_df['Path GAM'].iloc[0]
                 saved_value_file_dcm = saved_df['Path DCM'].iloc[0]
                 saved_value_file_dv = saved_df['Path DV'].iloc[0]
@@ -44,7 +47,7 @@ def load_saved_value():
                 st.session_state['file_export_ctr'] = saved_value_export_ctr
                 st.session_state['file_export_vw'] = saved_value_export_vw
                 st.session_state['file_export_cr'] = saved_value_export_cr
-                st.session_state['path_ias'] = saved_value_file_ias
+                
                 st.session_state['path_gam'] = saved_value_file_gam
                 st.session_state['path_dcm'] = saved_value_file_dcm
                 st.session_state['path_dv'] = saved_value_file_dv
@@ -57,9 +60,10 @@ def load_saved_value():
                 
                 
                 st.write("✅ Perfil cargado:", saved_value_perfil)
-                st.write(saved_value_file_ias)
+                st.write("IAS:", saved_value_file_ias)
             except Exception as e:
-                st.error(f"❌ Error al cargar perfil: {e}")              
+                st.error(f"❌ Error al cargar perfil: {e}")
+                             
         '''if os.path.exists('./frontend/assets/perfil.xlsx'):
             saved_df = pd.read_excel('./frontend/assets/perfil.xlsx')
             if not saved_df.empty:
