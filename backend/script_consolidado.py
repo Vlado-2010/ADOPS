@@ -84,7 +84,8 @@ def conect_sheets():
     #local
     #credentials = ServiceAccountCredentials.from_json_keyfile_name(JSON,scope)
     #Streamlit
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(creds_dict,scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+    
     client = gspread.authorize(credentials)
     sheet_Date = client.open("Data_Client_Date_2025_1").sheet1
     sheet_Month = client.open("Data_Client_Month_2025_1").sheet1
