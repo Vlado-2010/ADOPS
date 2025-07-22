@@ -38,6 +38,7 @@ def consolidado_web():
         total_pasos = 20
         try:
             messages("Iniciando proceso...", 1, total_pasos)
+            Run_Consolidated()
             time.sleep(1)
 
             ejecutar_paso("Conectando Google Sheets...", 2, total_pasos, conect_sheets)
