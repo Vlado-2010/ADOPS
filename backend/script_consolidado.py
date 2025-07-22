@@ -99,7 +99,8 @@ def conect_sheets():
     
 def read_paths():
     ias_value = st.session_state.get("path_ias")
-    value_ias =show_selection(ias_value) 
+    value_ias =show_selection(ias_value)
+    st.write("Value IAS;" , value_ias)
     gam_value = st.session_state.get("path_gam")
     value_gam =show_selection(gam_value)
     dcm_value = st.session_state.get("path_dcm")
