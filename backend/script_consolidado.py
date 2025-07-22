@@ -68,11 +68,12 @@ def run_data_manipulation_dcm(df_join_dcm,df_join_ias,df_join_dv):
 #--------------------------------------------------------------------------------------------------------------------------------
 
 
-def Run_Consolidated(check_daily,check_monthly,check_package):
+def Run_Consolidated():
         st.write(check_daily)
         st.write(check_monthly)
-        st.write(check_package)
         load_saved_value()
+        st.write(check_package)
+
 
         
         #consolidado_web.messages("Ejecutando Funcion Run..")
