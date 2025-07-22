@@ -41,7 +41,7 @@ def load_saved_value():
                 st.session_state['file_export_ctr'] = saved_value_export_ctr
                 st.session_state['file_export_vw'] = saved_value_export_vw
                 st.session_state['file_export_cr'] = saved_value_export_cr
-                st.session_state['path_ias'] = saved_value_file_ias
+                st.session_state['path_ias'] = [saved_value_file_ias]
                 st.session_state['path_gam'] = saved_value_file_gam
                 st.session_state['path_dcm'] = saved_value_file_dcm
                 st.session_state['path_dv'] = saved_value_file_dv
