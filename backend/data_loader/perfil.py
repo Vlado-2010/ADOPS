@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 
 df = DATAFRAME_PATHS()
+st.dataframe(df)
 '''url_looker=show_selection(df_value_looker)
 file_pas=show_selection(df_value_Pas)
 file_pds=show_selection(df_value_Pds)
