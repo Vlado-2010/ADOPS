@@ -13,7 +13,7 @@ def load_saved_value():
     
         if os.path.exists('./frontend/assets/perfil.xlsx'):
             saved_df = pd.read_excel('./frontend/assets/perfil.xlsx')
-            st.write("Contenido del perfil.xlsx:", saved_df)  # 👈 Agregado para ver qué trae
+            #st.write("Contenido del perfil.xlsx:", saved_df)  # 👈 Agregado para ver qué trae
         if not saved_df.empty:
             try:
                 saved_value_perfil = saved_df['Perfil'].iloc[0]
@@ -59,8 +59,7 @@ def load_saved_value():
                 st.session_state['looker_consolidado'] = saved_value_looker 
                 
                 
-                st.write("✅ Perfil cargado:", saved_value_perfil)
-                st.write("IAS:", saved_value_file_ias)
+                st.write("✅ Perfil cargado:")
             except Exception as e:
                 st.error(f"❌ Error al cargar perfil: {e}")
                              
