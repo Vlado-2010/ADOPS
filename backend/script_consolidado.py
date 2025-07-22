@@ -127,7 +127,9 @@ def read_paths():
 def ias():
     st.write("Modulo IAS..")
     try:
-        path_ias,_,_,_,_,_,_,_ = read_paths()    
+           
+        path_ias,_,_,_,_,_,_,_ = read_paths()
+        st.write("Rutas IAS encontradas:", path_ias) 
 
         xlsx_list=[]
         for f in path_ias:
