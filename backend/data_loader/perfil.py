@@ -4,29 +4,24 @@ import pandas as pd
 import streamlit as st
 
 df = DATAFRAME_PATHS()
-st.dataframe(df)
 '''url_looker=show_selection(df_value_looker)
 file_pas=show_selection(df_value_Pas)
 file_pds=show_selection(df_value_Pds)
 file_table=show_selection(df_value_Table) '''
           
 def load_saved_value():
-        path = './frontend/assets/perfil.xlsx'
     
-        if not os.path.exists(path):
-            st.error(f"⚠️ Archivo no encontrado en {path}")
-        return
-    
-        saved_df = pd.read_excel(path)
-    
-        if saved_df.empty:
-            st.warning("⚠️ El archivo perfil.xlsx está vacío.")
-        return
-
-        st.write("📄 Contenido de perfil.xlsx:", saved_df.head())  # <= Para depurar
-    
-        
         if os.path.exists('./frontend/assets/perfil.xlsx'):
+            saved_df = pd.read_excel('./frontend/assets/perfil.xlsx')
+            st.write("Contenido del perfil.xlsx:", saved_df)  # 👈 Agregado para ver qué trae
+        if not saved_df.empty:
+            try:
+                saved_value_perfil = saved_df['Perfil'].iloc[0]
+                st.session_state['profile'] = saved_value_perfil
+                st.write("✅ Perfil cargado:", saved_value_perfil)
+            except Exception as e:
+                st.error(f"❌ Error al cargar perfil: {e}")              
+        '''if os.path.exists('./frontend/assets/perfil.xlsx'):
             saved_df = pd.read_excel('./frontend/assets/perfil.xlsx')
             if not saved_df.empty:
                 saved_value_perfil = saved_df['Perfil'].iloc[0]
@@ -66,7 +61,7 @@ def load_saved_value():
                 st.session_state['path_tap'] = saved_value_file_tap
                 st.session_state['path_one_drive'] = saved_value_OneDrive_Direct
                 st.session_state['path_xandr'] = saved_value_file_xandr
-                st.session_state['looker_consolidado'] = saved_value_looker               
+                st.session_state['looker_consolidado'] = saved_value_looker '''              
                 
                 #show_selection()        
 
